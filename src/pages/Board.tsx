@@ -45,6 +45,7 @@ const Board = () => {
 
   useEffect(() => {
     const getBoard = async () => {
+      if(boardId){
       try {
         const res = await boardApi.getParticularOne(boardId);
         setTitle(res.data.title);
@@ -56,6 +57,7 @@ const Board = () => {
       }
       dispatch(setAddSections(false))
     };
+  }
     getBoard();
   }, [boardId,addedBoard,dispatch]);
   const updateDescription = async (e: React.ChangeEvent<HTMLInputElement>) => {
