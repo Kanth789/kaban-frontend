@@ -2,7 +2,7 @@ import { Box, ListItem, ListItemButton, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import boardApi from "../../api/boardApis";
 import { setFavouriteList } from "../../redux/features/favouriteSlice";
 import {
