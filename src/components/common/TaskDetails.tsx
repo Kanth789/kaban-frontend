@@ -16,17 +16,17 @@ import taskApi from "../../api/taskApi";
 import "../../css/custom-editor.css";
 
 const modalStyle = {
-  outline: "none",
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "50%",
-  bgcolor: "background.paper",
-  border: "0px solid #000",
+  outline: 'none',
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '50%',
+  bgcolor: 'background.paper',
+  border: '0px solid #000',
   boxShadow: 24,
   p: 1,
-  height: "80%",
+  height: '80%'
 };
 
 interface Task {
