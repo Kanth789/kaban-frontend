@@ -20,7 +20,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "typeRoots": ["node_modules/@types"],
-    "types": ["react", "react-dom", "react-router-dom", "node", "jest", "@types/ckeditor__ckeditor5-build-classic"]
+    "types": ["react", "react-dom", "node", "jest"]
   },
   "include": [
     "src"
