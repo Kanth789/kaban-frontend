@@ -8,7 +8,7 @@ import {
   StarOutlined,
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { setBoards } from "../redux/features/boardSlice";
+import { setAddSections, setBoards } from "../redux/features/boardSlice";
 import { setFavouriteList } from "../redux/features/favouriteSlice";
 import { RootState } from "../redux/store";
 import Sections from "../components/common/Sections";
@@ -36,6 +36,7 @@ const Board = () => {
     (state: RootState) => state.favourites.value
   );
   const boards = useSelector((state: RootState) => state.board.boards);
+  const addedBoard = useSelector((state:RootState)=>state.board.addSections)
   const { boardId } = useParams();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -53,9 +54,10 @@ const Board = () => {
       } catch (err) {
         alert(err);
       }
+      dispatch(setAddSections(false))
     };
     getBoard();
-  }, [boardId]);
+  }, [boardId,addedBoard,dispatch]);
   const updateDescription = async (e: React.ChangeEvent<HTMLInputElement>) => {
     clearTimeout(timer);
     const newDescription = e.currentTarget.value;

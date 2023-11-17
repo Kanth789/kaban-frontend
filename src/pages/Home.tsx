@@ -10,17 +10,13 @@ import UI from "../constants/ui";
 const Home = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const [loading,setLoading] = useState(false)
   const handleAddNewBoard = async () => {
-    setLoading(true)
     try{
       const res = await boardApi.create()
       dispatch(setBoards([res.data]))
       navigate(`/boards/${res.data?._id}`)
     }catch(err){
       alert(err)
-    }finally{
-      setLoading(false)
     }
   };
   return (

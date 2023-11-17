@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import authUtils from "../../util/AuthUtil";
 import Loading from "../common/Loading";
 import { Container, Box } from "@mui/material";
 const AuthLayout = () => {
   const navigate = useNavigate();
-  const location = useLocation();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkAuth = async () => {
       const isAuth = await authUtils.isAuthenticated();
-      {console.log(isAuth)}
       if (!isAuth) {
         setLoading(false);
       } else {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet,  useNavigate } from "react-router-dom";
 import authUtils from "../../util/AuthUtil";
-import { Container, Box } from "@mui/material";
+import {  Box } from "@mui/material";
 import Loading from "../common/Loading";
 import Sidebar from "../common/Sidebar";
 import { useDispatch } from "react-redux";
@@ -23,7 +23,7 @@ const AppLayout = () => {
       }
     };
     checkAuth();
-  }, [navigate]);
+  }, [navigate,dispatch]);
   return loading ? (
     <Loading fullHeight={true} />
   ) : (

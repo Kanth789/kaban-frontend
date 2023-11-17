@@ -19,6 +19,8 @@ import sectionApi from "../../api/sectionApi";
 import taskApi from "../../api/taskApi";
 import TaskDetails from "./TaskDetails";
 import UI from "../../constants/ui";
+import { useDispatch } from "react-redux";
+import { setAddSections } from "../../redux/features/boardSlice";
 
 interface Task {
   _id: string;
@@ -54,6 +56,7 @@ let timer: NodeJS.Timeout;
 const timeOut = 500;
 
 const Sections = ({ sections, boardId }: Props) => {
+  const dispatch = useDispatch()
   const [data, setData] = useState<Array<Section>>([]);
   const [selectedItem, setSelectedItem] = useState<Task | null>(null);
   const [shouldModalOpen,setShouldModalOpen] = useState(false)
@@ -65,10 +68,13 @@ const Sections = ({ sections, boardId }: Props) => {
     try {
       const response = await sectionApi.create(boardId);
       const section: Section = response.data;
+      dispatch(setAddSections(true))
       setData([...sections, section]);
+      
     } catch (err) {
       alert(err);
     }
+    
   };
   const onDragEnd = async (result: DropResult) => {
     const { source, destination } = result;

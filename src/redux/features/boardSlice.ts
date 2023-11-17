@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 interface BoardItem {
   _id: string;
@@ -13,10 +13,12 @@ interface BoardItem {
 
 interface BoardState {
   boards: BoardItem[];
+  addSections:boolean
 }
 
-const initialState: BoardState = {
+const initialState:BoardState = {
   boards: [],
+  addSections:false
 };
 
 const boardSlice = createSlice({
@@ -26,9 +28,12 @@ const boardSlice = createSlice({
     setBoards: (state, action) => {
       state.boards =  action.payload.data ? action.payload.data : action.payload; 
     },
+    setAddSections :(state,action)=>{
+      state.addSections = action.payload
+    }
   },
 });
 
-export const { setBoards } = boardSlice.actions;
+export const { setBoards,setAddSections } = boardSlice.actions;
 
 export default boardSlice.reducer;

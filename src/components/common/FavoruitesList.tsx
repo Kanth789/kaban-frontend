@@ -15,7 +15,6 @@ import UI from "../../constants/ui";
 
 const FavoruitesList = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const list = useSelector((state: RootState) => state.favourites.value);
   const [activeIndex, setActiveIndex] = useState(0);
   const { boardId } = useParams();
@@ -30,7 +29,7 @@ const FavoruitesList = () => {
       }
     }
     getBoards()
-  }, [])
+  }, [dispatch])
 
   useEffect(
     () => {
